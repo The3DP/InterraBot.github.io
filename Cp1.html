@@ -1,1 +1,65 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <title>User Information Form</title>
+  <style>
+    body {
+      font-family: Arial, sans-serif;
+      margin: 30px;
+    }
+    label {
+      display: block;
+      margin-top: 10px;
+    }
+    .output {
+      margin-top: 20px;
+      padding: 10px;
+      background-color: #f0f0f0;
+    }
+  </style>
+</head>
+<body>
 
+  <h1>User Information</h1>
+  <form id="userForm">
+    <label for="fname">What is your first name?</label>
+    <input type="text" id="fname" name="fname" required>
+
+    <label for="lname">What is your last name?</label>
+    <input type="text" id="lname" name="lname" required>
+
+    <label for="age">How old are you?</label>
+    <input type="number" id="age" name="age" required>
+
+    <label for="color">What is your favorite color?</label>
+    <input type="text" id="color" name="color" required>
+
+    <br><br>
+    <button type="submit">Submit</button>
+  </form>
+
+  <div class="output" id="output"></div>
+
+  <script>
+    document.getElementById("userForm").addEventListener("submit", function(e) {
+      e.preventDefault(); // Prevent form from submitting normally
+
+      const fname = document.getElementById("fname").value;
+      const lname = document.getElementById("lname").value;
+      const age = document.getElementById("age").value;
+      const color = document.getElementById("color").value;
+
+      const output = `
+        <p>Your first name is <strong>${fname}</strong></p>
+        <p>Your last name is <strong>${lname}</strong></p>
+        <p>Your age is <strong>${age}</strong></p>
+        <p>Your favorite color is <strong>${color}</strong></p>
+      `;
+
+      document.getElementById("output").innerHTML = output;
+    });
+  </script>
+
+</body>
+</html>
